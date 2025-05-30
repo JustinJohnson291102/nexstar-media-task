@@ -1,5 +1,6 @@
 import React from 'react';
-import { Calendar, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Calendar } from 'lucide-react';
 import { NewsArticle } from '../utils/types';
 
 interface NewsCardProps {
@@ -8,7 +9,6 @@ interface NewsCardProps {
 }
 
 const NewsCard: React.FC<NewsCardProps> = ({ article, featured = false }) => {
-  // Format date
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
     return date.toLocaleDateString('en-US', {
@@ -18,96 +18,60 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, featured = false }) => {
     });
   };
 
-  const formattedDate = formatDate(article.publishedAt);
-  
-  // Use placeholder image if urlToImage is null
-  const imageUrl = article.urlToImage || 'https://images.pexels.com/photos/518543/pexels-photo-518543.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1';
-
-  if (featured) {
-    return (
-      <div className="news-card overflow-hidden h-full flex flex-col">
-        <div className="relative">
-          <img 
-            src={imageUrl}
-            alt={article.title}
-            className="w-full h-64 object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6">
-            <span className="bg-primary text-white px-3 py-1 rounded-full text-xs font-medium inline-block mb-2">
-              {article.source.name}
-            </span>
-            <h3 className="text-white text-xl font-bold">{article.title}</h3>
-            <div className="flex items-center text-gray-200 text-sm mt-2">
-              <Calendar size={16} className="mr-1" />
-              <span>{formattedDate}</span>
-            </div>
-          </div>
-        </div>
-        <div className="p-6 flex-grow bg-white">
-          <p className="text-gray-600 mb-4">
-            {article.description || 'Read the full article for more information...'}
-          </p>
-          <a 
-            href={article.url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-flex items-center text-primary font-medium hover:underline"
-          >
-            Read Full Article
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-4 w-4 ml-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </a>
-        </div>
-      </div>
-    );
-  }
+  const handleReadMore = () => {
+    window.open(article.url, '_blank');
+  };
 
   return (
-    <div className="news-card h-full flex flex-col">
-      <div className="relative h-48">
-        <img 
-          src={imageUrl}
+    <motion.div
+      className="h-full flex flex-col bg-white rounded-xl shadow-lg overflow-hidden"
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.4 }}
+    >
+      <div className="relative h-48 md:h-56 overflow-hidden">
+        <motion.img
+          src={article.urlToImage || 'https://via.placeholder.com/400x300'}
           alt={article.title}
           className="w-full h-full object-cover"
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.4 }}
         />
-        <span className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-medium">
-          {article.source.name}
-        </span>
-      </div>
-      <div className="p-5 flex-grow">
-        <div className="flex items-center text-gray-500 text-sm mb-2">
-          <Calendar size={16} className="mr-1" />
-          <span>{formattedDate}</span>
+        <div className="absolute top-4 left-4">
+          <span className="bg-primary text-white px-3 py-1 rounded-full text-sm font-medium">
+            {article.source.name}
+          </span>
         </div>
-        <h3 className="font-bold text-lg mb-2 line-clamp-2">{article.title}</h3>
+      </div>
+
+      <div className="p-6 flex-grow flex flex-col">
+        <div className="flex items-center text-gray-500 text-sm mb-3">
+          <Calendar size={16} className="mr-2" />
+          <span>{formatDate(article.publishedAt)}</span>
+        </div>
+
+        <h3 className="text-xl font-bold mb-3 line-clamp-2 hover:text-primary transition-colors">
+          {article.title}
+        </h3>
+
         <p className="text-gray-600 mb-4 line-clamp-3">
-          {article.description || 'Read the full article for more information...'}
+          {article.description}
         </p>
-        <a 
-          href={article.url} 
-          target="_blank" 
-          rel="noopener noreferrer"
-          className="inline-flex items-center text-primary font-medium hover:underline mt-auto"
+
+        <motion.button
+          onClick={handleReadMore}
+          className="mt-auto inline-flex items-center text-primary font-medium hover:underline"
+          whileHover={{ x: 5 }}
+          transition={{ duration: 0.2 }}
         >
-          Read More
+          Read Full Article
           <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4 ml-1"
+            className="w-4 h-4 ml-2"
             fill="none"
-            viewBox="0 0 24 24"
             stroke="currentColor"
+            viewBox="0 0 24 24"
           >
             <path
               strokeLinecap="round"
@@ -116,9 +80,9 @@ const NewsCard: React.FC<NewsCardProps> = ({ article, featured = false }) => {
               d="M9 5l7 7-7 7"
             />
           </svg>
-        </a>
+        </motion.button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

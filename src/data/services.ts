@@ -3,7 +3,7 @@ export const services = [
     id: 1,
     title: 'Broadcast Solutions',
     description: 'End-to-end broadcasting services with state-of-the-art technology and expert teams.',
-    icon: 'Tv',
+    icon: '1',
     benefits: [
       'Wide national reach across multiple markets',
       'HD broadcasting technology',
@@ -65,7 +65,7 @@ export const services = [
     id: 2,
     title: 'Digital Advertising',
     description: 'Targeted digital advertising solutions across multiple platforms and devices.',
-    icon: 'Smartphone',
+    icon: '2',
     benefits: [
       'Hyper-local targeting capabilities',
       'Cross-platform campaigns',
@@ -127,7 +127,7 @@ export const services = [
     id: 3,
     title: 'Content Production',
     description: 'Professional content creation services for all media platforms.',
-    icon: 'Video',
+    icon: '3',
     benefits: [
       'Professional production teams',
       'State-of-the-art equipment',
@@ -189,7 +189,7 @@ export const services = [
     id: 4,
     title: 'Media Analytics',
     description: 'Advanced analytics and insights for media performance optimization.',
-    icon: 'BarChart',
+    icon: '4',
     benefits: [
       'Real-time data analysis',
       'Cross-platform tracking',
@@ -251,7 +251,7 @@ export const services = [
     id: 5,
     title: 'Event Broadcasting',
     description: 'Professional live event coverage and broadcasting services.',
-    icon: 'Radio',
+    icon: '5',
     benefits: [
       'Live streaming capability',
       'Multi-camera setup',
@@ -313,7 +313,7 @@ export const services = [
     id: 6,
     title: 'Media Consulting',
     description: 'Strategic media consulting and planning services.',
-    icon: 'Users',
+    icon: '6',
     benefits: [
       'Expert industry knowledge',
       'Custom strategy development',
