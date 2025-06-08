@@ -72,6 +72,10 @@ export default {
         '400': '400ms',
         '600': '600ms',
       },
+      // ADD THIS SECTION:
+      backgroundImage: {
+        'hero-gradient': 'linear-gradient(90deg, #2d1e91 0%, #a044ff 60%, #fbc2eb 100%)',
+      },
     },
   },
   plugins: [],

@@ -6,6 +6,7 @@ interface AnimatedCounterProps {
   duration?: number;
   suffix?: string;
   prefix?: string;
+  className?: string; // <-- Add this!
 }
 
 export default function AnimatedCounter({
@@ -13,6 +14,7 @@ export default function AnimatedCounter({
   duration = 2,
   suffix = '',
   prefix = '',
+  className = '',     // <-- Add this!
 }: AnimatedCounterProps) {
   const count = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
@@ -34,7 +36,7 @@ export default function AnimatedCounter({
       viewport={{ once: true }}
     >
       <motion.div
-        className="text-4xl md:text-5xl font-bold text-primary"
+        className={`${className} font-bold text-primary`} // <-- Use className here!
         initial={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
       >

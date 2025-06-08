@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
+import ChatbotWidget from './ChatbotWidget'; // <-- Import your chatbot
 
 const Layout: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -22,6 +23,7 @@ const Layout: React.FC = () => {
         <Outlet />
       </main>
       <Footer />
+      <ChatbotWidget /> {/* <-- Always visible, bottom right on every page */}
     </div>
   );
 };

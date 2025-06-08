@@ -13,6 +13,7 @@ import TestimonialSlider from '../components/TestimonialSlider';
 import { fetchNews } from '../utils/newsApi';
 import { services } from '../data/services';
 import { NewsArticle, Client } from '../utils/types';
+import office from '../components/office.webp';
 
 const Home: React.FC = () => {
   const [latestNews, setLatestNews] = useState<NewsArticle[]>([]);
@@ -74,8 +75,39 @@ const Home: React.FC = () => {
         ctaText="Get Started"
         ctaLink="/contact"
         videoBtnText="Watch Video"
-        videoBtnLink="#"
+        videoBtnLink="https://youtu.be/cMDSG-I05mk?si=SiJnPrAkUGweezK6"
       />
+
+      {/* Media Info Section: Brief about Nexstar Media Group */}
+      <section className="py-16 bg-white">
+        <div className="container">
+          <motion.div
+            className="w-full"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {/* Animated Heading */}
+            <h2 className="text-2xl md:text-3xl font-bold text-primary mb-4 text-center w-full">
+              About <span className="animated-gradient-text">Nexstar Media Group</span>
+            </h2>
+            {/* Paragraph below heading, full width */}
+            <p className="text-gray-700 text-lg mb-8 w-full text-left">
+              Nexstar Media Group is the largest local television and media company in the United States. With over 200 owned or partner stations in 116 markets, we reach more than 212 million people nationwide. Our trusted brands deliver news, entertainment, and content solutions across multiple platforms, empowering communities and helping businesses grow through innovative media strategies.
+            </p>
+            {/* Icons below paragraph, horizontal and evenly spaced */}
+            <div className="flex flex-row justify-between items-center w-full max-w-3xl mx-auto mt-4">
+              <Tv className="text-primary" size={36} />
+              <Radio className="text-primary" size={36} />
+              <Smartphone className="text-primary" size={36} />
+              <PenTool className="text-primary" size={36} />
+              <BarChart className="text-primary" size={36} />
+              <Rss className="text-primary" size={36} />
+            </div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Stats Section */}
       <section className="py-12 bg-gray-50">
@@ -88,7 +120,7 @@ const Home: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <AnimatedCounter end={200} suffix="+" />
+              <AnimatedCounter end={200} suffix="+" className="text-2xl font-semibold" />
               <p className="text-gray-600">TV Stations</p>
             </motion.div>
             <motion.div 
@@ -98,7 +130,7 @@ const Home: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
-              <AnimatedCounter end={100} suffix="M+" />
+              <AnimatedCounter end={100} suffix="M+" className="text-2xl font-semibold" />
               <p className="text-gray-600">Viewers Reached</p>
             </motion.div>
             <motion.div 
@@ -108,7 +140,7 @@ const Home: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              <AnimatedCounter end={6} prefix="$" suffix="B+" />
+              <AnimatedCounter end={6} prefix="$" suffix="B+" className="text-2xl font-semibold" />
               <p className="text-gray-600">Annual Revenue</p>
             </motion.div>
             <motion.div 
@@ -118,7 +150,7 @@ const Home: React.FC = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
             >
-              <AnimatedCounter end={25} suffix="+" />
+              <AnimatedCounter end={25} suffix="+" className="text-2xl font-semibold" />
               <p className="text-gray-600">Years Experience</p>
             </motion.div>
           </div>
@@ -134,7 +166,10 @@ const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-4">Our Media Services</h2>
+            {/* Animated Subheading */}
+            <h3 className="mb-4">
+              Our <span className="animated-gradient-text">Media Services</span>
+            </h3>
             <p className="text-gray-600 text-lg">
               Delivering comprehensive media solutions across broadcast, digital, and content production to help businesses reach their target audiences.
             </p>
@@ -162,6 +197,21 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      <section className="section py-8 bg-white">
+        <div className="container flex justify-center">
+          <img
+            src={office}
+            alt="Office"
+            className="rounded-lg shadow-lg"
+            style={{
+              width: '75%',
+              height: '402.5px',
+              objectFit: 'cover'
+            }}
+          />
+        </div>
+      </section>      
+
       {/* Performance Chart Section */}
       <section className="section bg-gray-50">
         <div className="container">
@@ -171,7 +221,10 @@ const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-4">Our Performance</h2>
+            {/* Animated Heading */}
+            <h2 className="mb-4">
+              Our <span className="animated-gradient-text">Performance</span>
+            </h2>
             <p className="text-gray-600 text-lg">
               Track our growth and success across key metrics
             </p>
@@ -196,7 +249,10 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">America's Leading Local Media Company</h2>
+              {/* Animated Heading */}
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                America's Leading <span className="animated-gradient-text">Local Media Company</span>
+              </h2>
               <p className="text-white/90 mb-6 text-lg">
                 Nexstar Media Group is America's largest local television and media company with 200 owned or partner stations in 116 markets reaching 212 million people.
               </p>
@@ -235,7 +291,10 @@ const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-4">Client Testimonials</h2>
+            {/* Animated Heading */}
+            <h2 className="mb-4">
+              Client <span className="animated-gradient-text">Testimonials</span>
+            </h2>
             <p className="text-gray-600 text-lg">
               Hear what our clients have to say about working with Nexstar Media Group
             </p>
@@ -260,7 +319,10 @@ const Home: React.FC = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="mb-4">Latest Media News</h2>
+              {/* Animated Heading */}
+              <h2 className="mb-4">
+                Latest <span className="animated-gradient-text">Media News</span>
+              </h2>
               <p className="text-gray-600 text-lg max-w-2xl">
                 Stay updated with the latest news and developments in the media industry.
               </p>
@@ -312,7 +374,10 @@ const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-4">Our Clients</h2>
+            {/* Animated Heading */}
+            <h2 className="mb-4">
+              Our <span className="animated-gradient-text">Clients</span>
+            </h2>
             <p className="text-gray-600 text-lg">
               We're proud to work with leading businesses across various industries, helping them achieve their media and marketing goals.
             </p>
@@ -343,7 +408,10 @@ const Home: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="mb-6">Ready to Transform Your Media Strategy?</h2>
+            {/* Animated Heading */}
+            <h2 className="mb-6">
+              Ready to <span className="animated-gradient-text">Transform Your Media Strategy?</span>
+            </h2>
             <p className="text-white/80 text-lg mb-8">
               Get in touch with our team of media experts to discuss how Nexstar Media Group can help your business reach new heights.
             </p>

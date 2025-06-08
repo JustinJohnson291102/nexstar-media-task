@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
@@ -43,11 +43,20 @@ const Contact: React.FC = () => {
 
   return (
     <>
-      {/* Page Header */}
-      <div className="bg-gradient-to-r from-primary to-secondary text-white pt-32 pb-16">
-        <div className="container">
-          <div className="max-w-3xl">
-            <h1 className="mb-4">Contact Us</h1>
+      {/* Page Header - matches Home/News/About gradient and pattern */}
+      <div
+        className="relative text-white pt-24 pb-16 md:pt-40 md:pb-24 overflow-visible"
+        style={{
+          background: `linear-gradient(90deg, #1e90ff 0%, #ffffff 100%)`,
+        }}
+      >
+        {/* Background shapes */}
+        <div className="absolute top-0 right-0 w-1/2 h-full bg-accent/10 rounded-bl-[200px]"></div>
+        <div className="absolute bottom-0 left-0 w-64 h-64 bg-white/5 rounded-full -ml-32 -mb-16"></div>
+        <div className="absolute top-1/4 right-1/4 w-32 h-32 bg-white/5 rounded-full"></div>
+        <div className="container relative z-10">
+          <div className="max-w-3xl animate-slide-up">
+            <h1 className="mb-4 text-4xl md:text-5xl font-bold">Contact Us</h1>
             <p className="text-xl text-white/90">
               Get in touch with our team to discuss how Nexstar Media Group can help your business grow.
             </p>
@@ -179,7 +188,7 @@ const Contact: React.FC = () => {
             <div className="lg:col-span-2">
               <div className="bg-white p-8 rounded-lg shadow-md">
                 <h3 className="text-2xl font-bold mb-6">Request a Free Quote</h3>
-                
+
                 {submitted ? (
                   <div className="bg-success/10 border border-success rounded-lg p-6 text-center">
                     <svg
@@ -328,7 +337,17 @@ const Contact: React.FC = () => {
         <div className="container">
           <div className="bg-white rounded-lg overflow-hidden shadow-md">
             <div className="aspect-w-16 aspect-h-9 h-96 bg-gray-200">
-              {/* In a real implementation, this would be a Google Maps embed */}
+              <iframe
+    title="Nexstar Headquarters Location"
+    src="https://www.google.com/maps?q=545+E+John+Carpenter+Freeway+Irving+TX+75062&output=embed"
+    width="100%"
+    height="100%"
+    allowFullScreen
+    loading="lazy"
+    className="w-full h-full border-0 rounded-lg"
+    style={{ minHeight: "100%" }}
+  ></iframe>
+
               <div className="w-full h-full flex items-center justify-center bg-gray-200">
                 <div className="text-center">
                   <MapPin size={48} className="text-primary mx-auto mb-4" />
