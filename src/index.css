@@ -5,12 +5,12 @@
 @tailwind utilities;
 
 :root {
-  --primary: 0 27 94;
-  --primary-foreground: 255 255 255;
-  --secondary: 255 0 0;
-  --secondary-foreground: 255 255 255;
-  --accent: 255 184 0;
-  --accent-foreground: 0 0 0;
+  --primary: 0, 27, 94;
+  --primary-foreground: 255, 255, 255;
+  --secondary: 255, 0, 0;
+  --secondary-foreground: 255, 255, 255;
+  --accent: 255, 184, 0;
+  --accent-foreground: 0, 0, 0;
 }
 
 @layer base {
@@ -178,7 +178,7 @@
   }
 }
 
-<<<<<<< HEAD
+
 /* ===== Animated gradient text (blue to red) ===== */
 @keyframes gradient-move {
   0% {
@@ -224,8 +224,8 @@
 .gradient-hero {
   background: linear-gradient(90deg, #2d1e91 0%, #a044ff 60%, #fbc2eb 100%);
   color: #fff;
-  padding: 60px 0 40px 0; /* Adjust padding as needed */
-=======
+  padding: 60px 0 40px 0; /* Adjust padding as needed */}
+
 @keyframes slide-up {
   from {
     opacity: 0;
@@ -410,5 +410,9 @@ html {
     opacity: 1;
     transform: translateY(0);
   }
->>>>>>> 87c1c4ec547d240be41b644f1ca267b8466ef837
+}
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
 }
