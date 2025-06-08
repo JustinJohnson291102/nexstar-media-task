@@ -103,7 +103,7 @@ const ChatbotWidget: React.FC = () => {
           <div
             className="flex items-center justify-between px-4 py-3 border-b rounded-t-xl"
             style={{
-              background: 'linear-gradient(90deg, #1a237e 0%, #8e24aa 100%)',
+              background: `linear-gradient(90deg, #1e90ff 0%, #ffffff 100%)`,
               color: 'white'
             }}
           >
